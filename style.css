@@ -9,7 +9,7 @@ body {
 .app-cont {
     display:flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .stat-holder {
