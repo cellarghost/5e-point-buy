@@ -5,12 +5,12 @@ const costs = new Map();
 const totalPoints = 27
 const pointsLeftEl = document.getElementById("points-left")
 
-elements.set("str", [8, 0])
-elements.set("dex", [8, 0])
-elements.set("con", [8, 0])
-elements.set("int", [8, 0])
-elements.set("wis", [8, 0])
-elements.set("cha", [8, 0])
+elements.set("str", [8, 0, -1])
+elements.set("dex", [8, 0, -1])
+elements.set("con", [8, 0, -1])
+elements.set("int", [8, 0, -1])
+elements.set("wis", [8, 0, -1])
+elements.set("cha", [8, 0, -1])
 
 
 costs.set(8, 0)
@@ -30,7 +30,6 @@ function increment(ability, val) {
         elements.set(ability, [v, costs.get(v)])
         document.getElementById(ability + "-val").textContent = elements.get(ability)[0]
         pointBuyUpdate(ability, val)
-        console.log(elements.get(ability)[1])
     }
 
 }
@@ -47,4 +46,15 @@ function pointBuyUpdate(ability, val) {
      } else {
         document.getElementById("points-left").style.color = "black";
      }
+     modifierUpdate(ability)
+}
+
+function modifierUpdate(ability) {
+    let abilityScore = elements.get(ability)[0]
+    let modifier = Math.floor((abilityScore - 10) / 2)
+    elements.get(ability)[2] = modifier
+    if (modifier > 0) {
+        modifier = "+" + modifier
+    }
+    document.getElementById(ability+"-mod").textContent = modifier
 }
