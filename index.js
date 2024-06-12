@@ -20,7 +20,7 @@ costs.set(11, 3)
 costs.set(12, 4)
 costs.set(13, 5)
 costs.set(14, 7)
-costs.set(15, 9)
+costs.set(15, 9) 
 
 let pointsSpent = 0
 
